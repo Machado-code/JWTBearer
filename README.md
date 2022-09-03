@@ -1,0 +1,2 @@
+# JWTBearer
+Autenticação e Autorização
