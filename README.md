@@ -10,7 +10,6 @@ WEB API ASP.NET / .NET 6.0 / JwtBearer (Autenticação e Autorização)
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/Machado-code/JWTBearer?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/Machado-code/JWTBearer?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/Machado-code/JWTBearer?style=for-the-badge)
-<img src="exemplo-image.png" alt="exemplo imagem">
 
 > Sistema WEB API Autenticacao e Autorizacao com JWTBearer
 
