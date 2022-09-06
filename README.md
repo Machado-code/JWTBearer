@@ -17,6 +17,8 @@ WEB API ASP.NET / .NET 6.0 / JwtBearer (Autenticação e Autorização)
 - C#
 - WEB Api (Interface de programação de aplicação servidor/navegador)
 - .Net Core v6.0 (Framework livre e de codigo aberto)
+- JWT Bearer Authentication / Authorization
+- Swagger
 
 ## 💻 Pré-requisitos
 
