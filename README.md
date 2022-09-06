@@ -3,56 +3,64 @@ WEB API ASP.NET / .NET 6.0 / JwtBearer (Autenticação e Autorização)
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Machado-code/miniProjeto?style=for-the-badge)
-![Version](https://img.shields.io/docker/v/Machado-code/weberpacx?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/Machado-code/miniProjeto?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/Machado-code/miniProjeto?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/Machado-code/miniProjeto?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/Machado-code/miniProjeto?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/Machado-code/miniProjeto?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Machado-code/JWTBearer?style=for-the-badge)
+![Version](https://img.shields.io/docker/v/Machado-code/JWTBearer?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/Machado-code/JWTBearer?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Machado-code/JWTBearer?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/Machado-code/JWTBearer?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/Machado-code/JWTBearer?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/Machado-code/JWTBearer?style=for-the-badge)
 <img src="exemplo-image.png" alt="exemplo imagem">
 
-> Sistema WEB API para cadastro de Produtos
+> Sistema WEB API Autenticacao e Autorizacao com JWTBearer
 
 ## :technologist: Técnologia / Padões Utilizado
-- MVC (Model-View-Controller) utilizado para separar a arquitetura do software para facilitar a compreensão e a manutenção.
 - C#
 - WEB Api (Interface de programação de aplicação servidor/navegador)
-- .Net Core v3.1 (Framework livre e de codigo aberto)
-- EntityFramwork
-- EntityFramwork Code-First (Gera o foco no desenvolvimento da aplicação em primeiro plano, ao inves de focar na construção do banco de dados)
-- Teste com Git Actions
-
-
+- .Net Core v6.0 (Framework livre e de codigo aberto)
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Visual Studio 2019 Instalado
+* Visual Studio 2022 Instalado
 * Você tem uma máquina `<Windows / Linux / Mac>`.
-* MYSQL Instalado em sua Maquina (Usuario: root e Senha: admin)
 
-## 🚀 Configurando Base de Dados MYSQL
+## ☕ Usando o JWTBearer
 
-Para criar a database/tabelas utilizada no projeto, siga estas etapas:
+Para usar o JWTBearer, siga estas etapas:
 
-- Ter o MYSQL Instalado em seu computador
-- Abrir miniProjeto.sln no Visual Studio 2019
-- Compilar Projeto (Menu Compilação > Compilar Solução ou Clique com botão direito(mouse) na solução miniProjeto > Compilar)
-- Executar comando Migration ( Ferramentas > Gerenciador de Pacotes NuGet > Console do Gerenciador de Pacotes )
-- executar o comando **update-database**
-
-
-## ☕ Usando o mineProjeto
-
-Para usar o miniProjeto, siga estas etapas:
-
-Com o miniProjeto aberto no Visual Studio 2019:
+Com o JWTBearer aberto no Visual Studio 2022:
 - Clicar em: **Depurar > Iniciar Depuração**
 <br/>Ou
 - Clicar na tecla **F5** com o projeto/solução já aberto.
-- Abrirá uma pagina WEB de seu navegador padrão com a execução do miniProjeto para cadastro de produtos.
+- Abrirá uma pagina WEB de seu navegador padrão com a execução do JWTBearer na pagina do Swagger. 
+
+![image](https://user-images.githubusercontent.com/51836378/188522032-4ca4925e-464f-418e-8258-3706de703b88.png)
+
+Para uso efetuar a Autenticacao temos dois usuarios exemplos em Hard-Code. Localizado no arquivo UserRepository.cs
+
+```
+  public static User Get(string username, string password)
+  {
+      var users = new List<User>();
+      users.Add(new User { Id = 1, Username = "goku", Password = "goku", Role = "manager" });
+      users.Add(new User { Id = 2, Username = "vegeta", Password = "vegeta", Role = "employee" });
+      return users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password).FirstOrDefault();
+  }
+```
+
+Utilizando o Username e Password em api/Home/login com o metodo POST
+
+![image](https://user-images.githubusercontent.com/51836378/188522514-fab7c152-d564-4a14-886f-7733a6e01be0.png)
+
+Tera o seguinte retorno contendo o Token JWT
+
+![image](https://user-images.githubusercontent.com/51836378/188522554-b9816b8c-91d8-44d2-b3ab-6376415eba5c.png)
+
+Copiar Token e inserir em Authorize do Swagger, iniciando com Bearer {Seu Token}.
+
+![image](https://user-images.githubusercontent.com/51836378/188522687-c3ec1772-c7c8-41bc-ba48-a49fd2c3dcf6.png)
 
 
 ## 📫 Contribuindo
@@ -83,7 +91,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
 </table>
-
 
 
 ## 📝 Licença
